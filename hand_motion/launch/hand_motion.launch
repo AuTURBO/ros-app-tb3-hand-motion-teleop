@@ -1,0 +1,6 @@
+<launch>
+
+  <node pkg="hand_motion" type="hand_status.py" name="hand_status" output="screen">
+  </node>
+
+</launch>
