@@ -14,8 +14,8 @@ from time import sleep
 
 SH = SenseHat()
 
-# 0, 0 = Top left
-# 7, 7 = Bottom right
+# Coordinate of Sense Hat LED
+# [0, 0] : Top left,  [7, 7] : Bottom right
 UP_PIXELS = [[3, 0], [4, 0]]
 DOWN_PIXELS = [[3, 7], [4, 7]]
 LEFT_PIXELS = [[0, 3], [0, 4]]
@@ -44,8 +44,10 @@ def hand_status():
         y_p = y
         z_p = z
 
+        # Get the accelerometer of each axis, 1G = 9.8m/s
         x, y, z = SH.get_accelerometer_raw().values()
-
+        
+        # Low-pass filter of measurements
         x = 0.5*x + 0.5*x_p;
         y = 0.5*y + 0.5*y_p;
         z = 0.5*z + 0.5*z_p;
@@ -101,9 +103,11 @@ def hand_status():
 
 if __name__ == '__main__':
     try:
+        # Initialization of LED to OFF
         for i in range(0,8):
             for j in range(0,8):
                 SH.set_pixel(i, j, BLACK)
+                
         rospy.init_node('hand_status', anonymous=True)
         hand_status()
     except rospy.ROSInterruptException:
