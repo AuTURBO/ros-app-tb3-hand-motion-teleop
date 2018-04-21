@@ -1,0 +1,6 @@
+<launch>
+
+  <node pkg="hand_sub" type="hand_status_sub.py" name="hand_status_sub" output="screen">
+  </node>
+
+</launch>
