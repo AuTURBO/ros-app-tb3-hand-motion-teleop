@@ -5,8 +5,8 @@
 # Package configuration
 * hand_motion package 
   * Publishing package of RASP3 on Hand 
-  * Sensing the 3-axis acceleration in G-dimension (1G = 9.8m/s^2) 
-  * Publishing topic : hand-command, consisting of 3 axis acceleratioin values
+  * Sensing the 3-axis acceleration in G-dimension (1G = 9.8m/s^2)
+  * Publishing topic : hand-command, consisting of 3 axis acceleratioin values
 * hand_sub package 
   * Subscribing & Publisching package of RASP3 on Turtlebot3
   * Transfoming the acceleration to Linear & Angular velocity command (topic cmd_vel)
